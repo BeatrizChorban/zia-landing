@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZIA · Descubra seu lucro em 30 segundos no WhatsApp</title>
+<meta name="description" content="Você trabalha o dia inteiro e não sabe quanto sobra? A Zia calcula seu lucro e o preço certo dos seus produtos direto no WhatsApp. Sem app, sem cadastro, sem planilha. Teste grátis.">
+<meta name="author" content="Zèphira">
+<meta property="og:title" content="Você vende, mas sabe quanto sobra? Descubra em 30 segundos.">
+<meta property="og:description" content="A assistente financeira das microempreendedoras. Lucro, preço certo e organização — 100% no WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1A5F6F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#1A5F6F; --teal-dark:#0F3E49; --sage:#7BA890; --lime:#CCFF00;
+    --cream:#F5F3ED; --ink:#2B2B2B; --muted:#5E6461; --copper:#D4A574;
+    --wa:#25D366; --wa-dark:#128C7E; --wa-bg:#ECE5DD; --wa-out:#DCF8C6;
+    --red:#C2410C; --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Poppins,Inter,sans-serif;line-height:1.15;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  section{padding:72px 0}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+  h2{font-size:clamp(28px,4.4vw,42px);margin-bottom:16px}
+  .lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:640px}
+  .center{text-align:center}.center .lead{margin:0 auto}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;text-decoration:none;font-weight:700;font-family:Poppins,sans-serif;font-size:18px;padding:18px 28px;border-radius:999px;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:transform .15s,box-shadow .15s;border:0;cursor:pointer}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,211,102,.45)}
+  .btn svg{width:24px;height:24px;flex:none}
+  .micro{font-size:14px;color:var(--muted);margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 16px}
+  .micro span::before{content:"✓ ";color:var(--wa-dark);font-weight:700}
+
+  /* Top bar */
+  .topbar{background:var(--ink);color:#fff;font-size:14px;text-align:center;padding:10px 16px}
+  .topbar b{color:var(--lime)}
+
+  /* Nav */
+  nav{padding:18px 0}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center}
+  .logo{font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:var(--teal);letter-spacing:-.03em;text-decoration:none}
+  .logo i{font-style:normal;color:var(--ink)}
+  .nav-cta{font-weight:600;font-size:15px;color:var(--teal);text-decoration:none;border:2px solid var(--teal);padding:8px 16px;border-radius:999px}
+
+  /* Hero */
+  .hero{padding:32px 0 72px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(34px,5.6vw,58px);margin-bottom:20px}
+  .hero h1 mark{background:linear-gradient(transparent 58%,var(--lime) 58%);color:inherit;padding:0 2px}
+  .hero p.sub{font-size:clamp(18px,2.1vw,21px);color:var(--muted);margin-bottom:28px;max-width:560px}
+  .hero p.sub b{color:var(--ink)}
+  .proof-row{display:flex;align-items:center;gap:12px;margin-top:28px;font-size:14px;color:var(--muted)}
+  .avatars{display:flex}
+  .avatars span{width:34px;height:34px;border-radius:50%;border:2px solid var(--cream);margin-left:-8px;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff}
+  .avatars span:first-child{margin-left:0}
+
+  /* Phone mockup */
+  .phone{background:#111;border-radius:40px;padding:12px;max-width:340px;margin:0 auto;box-shadow:0 30px 60px rgba(15,62,73,.25)}
+  .screen{background:var(--wa-bg);border-radius:30px;overflow:hidden}
+  .wa-head{background:var(--wa-dark);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .wa-head .av{width:36px;height:36px;border-radius:50%;background:var(--lime);color:var(--teal-dark);display:grid;place-items:center;font-weight:800;font-family:Poppins}
+  .wa-head b{display:block;font-size:15px}.wa-head small{font-size:12px;opacity:.85}
+  .chat{padding:14px 10px 18px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.4;min-height:420px}
+  .msg{max-width:85%;padding:8px 11px;border-radius:10px;box-shadow:0 1px 1px rgba(0,0,0,.08);opacity:0;transform:translateY(6px);animation:pop .35s forwards}
+  .msg.out{align-self:flex-end;background:var(--wa-out);border-top-right-radius:2px}
+  .msg.in{align-self:flex-start;background:#fff;border-top-left-radius:2px}
+  .msg .t{display:block;text-align:right;font-size:10px;color:#8a8a8a;margin-top:2px}
+  .msg b{color:var(--teal-dark)}
+  .msg .bad{color:var(--red);font-weight:700}
+  .msg .good{color:var(--wa-dark);font-weight:700}
+  .msg:nth-child(1){animation-delay:.3s}.msg:nth-child(2){animation-delay:1.1s}.msg:nth-child(3){animation-delay:1.9s}.msg:nth-child(4){animation-delay:2.7s}.msg:nth-child(5){animation-delay:3.5s}
+  @keyframes pop{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.msg{animation:none;opacity:1;transform:none}}
+
+  /* Pain */
+  .pain{background:#fff}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+  .pain-item{display:flex;gap:14px;align-items:flex-start;background:var(--cream);padding:18px 20px;border-radius:var(--radius);font-size:17px}
+  .pain-item .x{flex:none;width:28px;height:28px;border-radius:50%;background:#FDE7DC;color:var(--red);display:grid;place-items:center;font-weight:800}
+  .pain-close{margin-top:32px;font-size:clamp(19px,2.3vw,23px);font-family:Poppins;font-weight:600;max-width:760px}
+  .pain-close em{font-style:normal;background:var(--lime);padding:0 4px}
+
+  /* Agitation */
+  .agit{background:var(--teal);color:#fff}
+  .agit h2{color:#fff}.agit .lead{color:rgba(255,255,255,.82)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:24px}
+  .stat b{display:block;font-family:Poppins;font-size:44px;color:var(--lime);line-height:1}
+  .stat span{display:block;margin-top:8px;color:rgba(255,255,255,.88);font-size:16px}
+  .src{font-size:13px;color:rgba(255,255,255,.6);margin-top:18px}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .step{background:#fff;border-radius:var(--radius);padding:28px;position:relative}
+  .step .n{width:44px;height:44px;border-radius:50%;background:var(--teal);color:var(--lime);font-family:Poppins;font-weight:800;font-size:20px;display:grid;place-items:center;margin-bottom:16px}
+  .step h3{font-size:20px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:16px}
+  .step .ex{margin-top:14px;background:var(--wa-out);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--ink)}
+
+  /* Cases */
+  .cases{background:#fff}
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .case{border:1px solid #E4E1D8;border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+  .case .who{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .case .who b{color:var(--ink);display:block;font-size:16px}
+  .ba{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:6px 0 16px;text-align:center}
+  .ba div{border-radius:12px;padding:12px 6px}
+  .ba .before{background:#FDE7DC}.ba .after{background:#E5F7DA}
+  .ba small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .ba strong{font-family:Poppins;font-size:22px}
+  .ba .arrow{font-size:22px;color:var(--teal)}
+  .case p{font-size:16px;color:var(--muted)}
+  .case p b{color:var(--ink)}
+
+  /* Benefits */
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .benefit{background:#fff;border-radius:var(--radius);padding:26px}
+  .benefit .ic{font-size:28px;margin-bottom:10px}
+  .benefit h3{font-size:19px;margin-bottom:6px}
+  .benefit p{color:var(--muted);font-size:16px}
+
+  /* Compare */
+  .compare{background:#fff}
+  .table-wrap{overflow-x:auto;margin-top:36px;border-radius:var(--radius);border:1px solid #E4E1D8}
+  table{width:100%;border-collapse:collapse;min-width:620px;font-size:16px}
+  th,td{padding:16px 14px;text-align:center;border-bottom:1px solid #EEEBE3}
+  th{font-family:Poppins;font-size:15px;background:var(--cream)}
+  td:first-child,th:first-child{text-align:left;font-weight:500}
+  th.zia{background:var(--teal);color:var(--lime)}
+  td.zia{background:#F2F8E8;font-weight:700;color:var(--teal-dark)}
+  tr:last-child td{border-bottom:0}
+
+  /* Quotes */
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+  .quote{background:#fff;border-radius:var(--radius);padding:28px;border-left:5px solid var(--lime)}
+  .quote p{font-size:19px;font-family:Poppins;font-weight:600;line-height:1.35}
+  .quote span{display:block;margin-top:14px;color:var(--muted);font-size:15px}
+
+  /* Pricing */
+  .pricing{background:var(--teal-dark);color:#fff}
+  .pricing h2{color:#fff}.pricing .lead{color:rgba(255,255,255,.8)}
+  .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px;max-width:880px;margin-left:auto;margin-right:auto}
+  .plan{background:#fff;color:var(--ink);border-radius:24px;padding:32px;position:relative;display:flex;flex-direction:column}
+  .plan.hl{outline:4px solid var(--lime)}
+  .badge{position:absolute;top:-14px;left:32px;background:var(--lime);color:var(--teal-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;font-family:Poppins}
+  .plan h3{font-size:22px}
+  .plan .for{color:var(--muted);font-size:15px;margin:4px 0 18px}
+  .price-old{text-decoration:line-through;color:var(--muted);font-size:16px}
+  .price{font-family:Poppins;font-weight:800;font-size:46px;color:var(--teal);line-height:1.05}
+  .price small{font-size:17px;font-weight:600;color:var(--muted)}
+  .per-day{font-size:14px;color:var(--wa-dark);font-weight:600;margin:6px 0 18px}
+  .plan ul{list-style:none;margin-bottom:24px;flex:1}
+  .plan li{padding:7px 0 7px 28px;position:relative;font-size:16px}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--wa-dark);font-weight:800}
+  .plan li.plus{font-weight:600}
+  .plan .btn{width:100%;font-size:17px}
+  .plan .btn.alt{background:var(--teal);box-shadow:none}
+  .roi{max-width:880px;margin:28px auto 0;background:rgba(204,255,0,.12);border:1px dashed var(--lime);border-radius:var(--radius);padding:20px 24px;font-size:17px}
+  .roi b{color:var(--lime)}
+
+  /* Guarantee */
+  .guarantee .wrap{display:flex;gap:28px;align-items:center;background:#fff;border-radius:24px;padding:36px;max-width:880px}
+  .seal{flex:none;width:110px;height:110px;border-radius:50%;background:var(--lime);color:var(--teal-dark);display:grid;place-items:center;text-align:center;font-family:Poppins;font-weight:800;font-size:15px;line-height:1.1;border:4px dashed var(--teal)}
+  .seal b{font-size:34px;display:block}
+  .guarantee h3{font-size:24px;margin-bottom:8px}
+  .guarantee p{color:var(--muted)}
+
+  /* FAQ */
+  .faq{max-width:780px;margin:36px auto 0}
+  details{background:#fff;border-radius:14px;margin-bottom:12px;padding:0 22px}
+  summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:600;font-size:18px;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:24px;color:var(--teal);line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 0 20px;color:var(--muted)}
+
+  /* Founder */
+  .founder{background:#fff}
+  .founder .wrap{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;max-width:900px}
+  .founder .ph{width:150px;height:150px;border-radius:50%;background:var(--sage);display:grid;place-items:center;color:#fff;font-family:Poppins;font-weight:800;font-size:44px}
+  .founder blockquote{font-size:19px;line-height:1.6}
+  .founder blockquote p+p{margin-top:12px}
+  .founder cite{display:block;margin-top:16px;font-style:normal;color:var(--muted);font-size:15px}
+  .founder cite b{color:var(--ink)}
+
+  /* Final CTA */
+  .final{background:var(--lime);text-align:center}
+  .final h2{color:var(--teal-dark);max-width:760px;margin:0 auto 14px}
+  .final p{color:var(--teal-dark);font-size:19px;max-width:620px;margin:0 auto 28px}
+  .final .micro{justify-content:center;color:var(--teal-dark)}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.7);font-size:14px;padding:32px 0 110px;text-align:center}
+  footer a{color:#fff}
+
+  /* Sticky mobile CTA */
+  .sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;display:none;transform:translateY(140%);transition:transform .3s}
+  .sticky.show{transform:none}
+  .sticky .btn{width:100%;font-size:17px;padding:16px}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px}
+    .steps,.case-grid,.benefits,.stats{grid-template-columns:1fr}
+    .pain-grid,.quotes,.plans{grid-template-columns:1fr}
+    .founder .wrap{grid-template-columns:1fr;text-align:center}
+    .founder .ph{margin:0 auto}
+    .guarantee .wrap{flex-direction:column;text-align:center}
+    .sticky{display:block}
+    .nav-cta{display:none}
+    section{padding:56px 0}
+  }
+  @media (max-width:420px){ .btn{width:100%} }
+</style>
+</head>
+<body>
+
+<!-- ====== CONFIRMAR ANTES DE PUBLICAR ======
+  1. Número do WhatsApp em WA_NUMBER (script no fim)
+  2. Preços: Básico R$79,90 / Premium R$129,90 e oferta de fundadora (50% por 3 meses)
+  3. Teste grátis de 7 dias sem cartão
+  4. Autorização das usuárias para usar frases e casos (já anonimizados)
+============================================ -->
+
+<div class="topbar">🎉 <b>Preço de fundadora:</b> 50% OFF nos 3 primeiros meses para as primeiras assinantes</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Zi<i>A</i></a>
+    <a href="#" class="nav-cta" data-wa="nav">Testar grátis</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Para microempreendedoras que fazem tudo sozinhas</span>
+      <h1>Você trabalha o dia inteiro… mas sabe <mark>quanto sobra</mark> no fim do mês?</h1>
+      <p class="sub">A Zia é sua assistente financeira <b>no WhatsApp</b>. Você manda quanto gastou e quanto cobra — em <b>30 segundos</b> ela te mostra se está tendo lucro ou prejuízo e qual é o <b>preço certo</b> pra cobrar.</p>
+      <a href="#" class="btn" data-wa="hero">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+        Descobrir meu lucro grátis
+      </a>
+      <div class="micro"><span>Sem app novo</span><span>Sem cadastro</span><span>Sem planilha</span><span>7 dias grátis</span></div>
+      <div class="proof-row">
+        <div class="avatars" aria-hidden="true">
+          <span style="background:#1A5F6F">C</span><span style="background:#7BA890">F</span><span style="background:#D4A574">T</span><span style="background:#2B2B2B">B</span>
+        </div>
+        <span>Já ajudou artesãs, confeiteiras, cozinheiras e donas de escola a descobrir o lucro de verdade</span>
+      </div>
+    </div>
+
+    <div class="phone" aria-label="Exemplo de conversa com a Zia">
+      <div class="screen">
+        <div class="wa-head"><div class="av">Z</div><div><b>Zia</b><small>online</small></div></div>
+        <div class="chat">
+          <div class="msg out">Faço pulseira de macramê. Gasto uns R$5 de material, levo 1h e vendo por R$15 😅<span class="t">14:02</span></div>
+          <div class="msg in">Contando seu tempo, embalagem e a passagem pra feira, cada pulseira te custa <b>R$14,52</b>.<span class="t">14:02</span></div>
+          <div class="msg in">Vendendo a R$15 sobra <span class="bad">só R$0,48</span> 😬 Você praticamente trabalha de graça.<span class="t">14:02</span></div>
+          <div class="msg in">Cobrando <b>R$18</b> você ganha <span class="good">7x mais por peça</span> e continua com preço justo. Quer que eu calcule suas outras peças? 💚<span class="t">14:03</span></div>
+          <div class="msg out">Quero! Vou seguir seu conselho 🙌<span class="t">14:03</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== DOR ========== -->
+<section class="pain">
+  <div class="wrap">
+    <span class="eyebrow">Se você se reconhece em pelo menos uma…</span>
+    <h2>A Zia foi feita pra você</h2>
+    <div class="pain-grid">
+      <div class="pain-item"><span class="x">✕</span><span>Vende bem, trabalha muito, mas o dinheiro <b>nunca sobra</b></span></div>
+      <div class="pain-item"><span class="x">✕</span><span>Põe preço “no olhômetro” ou copia o da concorrente</span></div>
+      <div class="pain-item"><span class="x">✕</span><span>Tem medo de aumentar o preço e perder cliente</span></div>
+      <div class="pain-item"><span class="x">✕</span><span>O dinheiro da casa e o do negócio estão <b>misturados</b></span></div>
+      <div class="pain-item"><span class="x">✕</span><span>Já tirou do próprio bolso pra pagar fornecedor</span></div>
+      <div class="pain-item"><span class="x">✕</span><span>Começou uma planilha… e abandonou na segunda semana</span></div>
+    </div>
+    <p class="pain-close">Você não precisa de mais um app nem de virar contadora. <em>Você precisa de alguém que faça a conta com você</em> — no lugar onde você já está o dia todo: o WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ========== AGITAÇÃO ========== -->
+<section class="agit">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--lime)">O problema ninguém te conta</span>
+    <h2>O caderninho não te avisa quando você está no prejuízo</h2>
+    <p class="lead">Quem faz tudo sozinha quase nunca conta o próprio tempo, a embalagem, a taxa da maquininha e a passagem. Resultado: o preço parece bom, mas no fim do mês a conta não fecha.</p>
+    <div class="stats">
+      <div class="stat"><b>+50%</b><span>já levaram um “susto financeiro”: descobriram que estavam perdendo dinheiro</span></div>
+      <div class="stat"><b>45%</b><span>ainda controlam tudo no caderninho ou de cabeça</span></div>
+      <div class="stat"><b>1 em 4</b><span>não sabe se o preço que cobra está certo</span></div>
+    </div>
+    <p class="src">Pesquisa da Zia com mais de 50 microempreendedoras, 2026.</p>
+  </div>
+</section>
+
+<!-- ========== COMO FUNCIONA ========== -->
+<section>
+  <div class="wrap center">
+    <span class="eyebrow">Simples como mandar um áudio</span>
+    <h2>Como funciona</h2>
+    <p class="lead">Se você sabe usar o WhatsApp, você sabe usar a Zia.</p>
+    <div class="steps" style="text-align:left">
+      <div class="step"><div class="n">1</div><h3>Chama a Zia no WhatsApp</h3><p>Um clique no botão. Não precisa baixar nada nem criar senha.</p></div>
+      <div class="step"><div class="n">2</div><h3>Conta do seu jeito</h3><p>O que você vende, quanto gasta e quanto cobra. Pode ser por cima mesmo.</p><div class="ex">“Faço bolo de pote, gasto uns R$40 no material e vendo 20 por R$10”</div></div>
+      <div class="step"><div class="n">3</div><h3>Recebe a resposta pronta</h3><p>Seu lucro real, o preço certo e o próximo passo — em linguagem de gente, sem planilha.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CASOS REAIS ========== -->
+<section class="cases">
+  <div class="wrap">
+    <span class="eyebrow">Conversas reais do nosso teste</span>
+    <h2>O que acontece quando a conta é feita direito</h2>
+    <p class="lead">Nomes preservados. Números reais.</p>
+    <div class="case-grid">
+      <div class="case">
+        <div class="who"><b>Artesã de bijuterias e macramê</b>Vende em feira, trabalha sozinha</div>
+        <div class="ba"><div class="before"><small>Antes</small><strong>R$15</strong></div><span class="arrow">→</span><div class="after"><small>Depois</small><strong>R$18</strong></div></div>
+        <p>Achava que tinha lucro. Contando tempo, embalagem e ônibus, sobravam <b>R$0,48 por pulseira</b>. Com o preço novo, passou a ganhar <b>7x mais por peça</b> — e aprendeu a fórmula pra precificar o resto.</p>
+      </div>
+      <div class="case">
+        <div class="who"><b>Cozinheira de marmitas e caldos</b>Vende por encomenda aos sábados</div>
+        <div class="ba"><div class="before"><small>Antes</small><strong>Prejuízo</strong></div><span class="arrow">→</span><div class="after"><small>Depois</small><strong>Lucro</strong></div></div>
+        <p>Vendia o caldo a R$10 <b>no prejuízo sem saber</b>. A Zia recalculou usando as embalagens que ela já tinha e ainda mandou o texto pronto pra postar no status.</p>
+      </div>
+      <div class="case">
+        <div class="who"><b>Dona de escola de música</b>Faturamento de R$13 mil/mês</div>
+        <div class="ba"><div class="before"><small>Antes</small><strong>Tudo junto</strong></div><span class="arrow">→</span><div class="after"><small>Depois</small><strong>Separado</strong></div></div>
+        <p>“Não separamos pró-labore.” Em poucos minutos viu quanto a escola realmente lucra e quanto pode tirar pra família <b>sem quebrar o caixa</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BENEFÍCIOS ========== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">O que a Zia faz por você</span>
+    <h2>Uma sócia que entende de números, 24h no seu WhatsApp</h2>
+    <div class="benefits">
+      <div class="benefit"><div class="ic">🏷️</div><h3>Preço certo em minutos</h3><p>Calcula o preço de cada produto contando tudo — inclusive o seu tempo.</p></div>
+      <div class="benefit"><div class="ic">💰</div><h3>Lucro de verdade</h3><p>Mostra quanto sobrou no mês, não só quanto entrou.</p></div>
+      <div class="benefit"><div class="ic">🏠</div><h3>Casa separada do negócio</h3><p>Te ajuda a definir seu salário e parar de misturar as contas.</p></div>
+      <div class="benefit"><div class="ic">🎯</div><h3>Meta que dá pra bater</h3><p>“Quantas peças preciso vender na feira pra levar R$500 pra casa?” Ela responde.</p></div>
+      <div class="benefit"><div class="ic">✍️</div><h3>Textos prontos pra vender</h3><p>Legenda, status e mensagem pra cliente — é só copiar e postar.</p></div>
+      <div class="benefit"><div class="ic">📅</div><h3>Plano do mês</h3><p>Um passo a passo simples do que fazer pra ganhar mais no próximo mês.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMPARATIVO ========== -->
+<section class="compare">
+  <div class="wrap">
+    <span class="eyebrow">Por que não só uma planilha?</span>
+    <h2>Compare</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Caderninho</th><th>Planilha</th><th>Contador</th><th class="zia">Zia</th></tr></thead>
+        <tbody>
+          <tr><td>Calcula o preço certo pra você</td><td>✕</td><td>Se você souber montar</td><td>Raramente</td><td class="zia">✓ Na hora</td></tr>
+          <tr><td>Conta o seu tempo como custo</td><td>✕</td><td>✕</td><td>Raramente</td><td class="zia">✓</td></tr>
+          <tr><td>Responde suas dúvidas a qualquer hora</td><td>✕</td><td>✕</td><td>Horário comercial</td><td class="zia">✓ 24h</td></tr>
+          <tr><td>Precisa aprender algo novo</td><td>Não</td><td>Sim</td><td>Não</td><td class="zia">Não</td></tr>
+          <tr><td>Quanto custa</td><td>Grátis</td><td>Grátis</td><td>R$100+/mês</td><td class="zia">R$1,33/dia</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DEPOIMENTOS ========== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Quem testou</span>
+    <h2>Nas palavras delas</h2>
+    <div class="quotes">
+      <div class="quote"><p>“Estou usando e está sendo de muito valor. Está me ajudando muito na precificação em diferentes regiões, onde muda o poder aquisitivo das pessoas.”</p><span>Fátima — ateliê de artesanato feito à mão</span></div>
+      <div class="quote"><p>“Vou seguir o seu conselho. Queria saber quais seriam os valores fixos para eu aplicar nas outras peças.”</p><span>Cida — bijuterias e macramê, logo após ver o preço novo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PREÇO ========== -->
+<section class="pricing" id="planos">
+  <div class="wrap center">
+    <span class="eyebrow" style="color:var(--lime)">Comece grátis. Decida depois.</span>
+    <h2>Menos do que um cafezinho por dia</h2>
+    <p class="lead">Teste 7 dias sem pagar nada. Gostou? Fica com o preço de fundadora.</p>
+    <div class="plans" style="text-align:left">
+      <div class="plan hl">
+        <span class="badge">RECOMENDADO</span>
+        <h3>Básico</h3>
+        <p class="for">Pra quem quer parar de chutar preço e saber o lucro real</p>
+        <span class="price-old">R$79,90/mês</span>
+        <div class="price">R$39,95<small>/mês</small></div>
+        <div class="per-day">nos 3 primeiros meses · R$1,33 por dia</div>
+        <ul>
+          <li>Precificação de todos os seus produtos</li>
+          <li>Diagnóstico de lucro ou prejuízo</li>
+          <li>Separação do dinheiro da casa e do negócio</li>
+          <li>Análise financeira completa</li>
+          <li>Plano de ação mensal personalizado</li>
+          <li>Tudo pelo WhatsApp, a qualquer hora</li>
+        </ul>
+        <a href="#" class="btn" data-wa="plano_basico">Começar meus 7 dias grátis</a>
+      </div>
+      <div class="plan">
+        <h3>Premium</h3>
+        <p class="for">Pra quem quer crescer com acompanhamento de perto</p>
+        <span class="price-old">R$129,90/mês</span>
+        <div class="price">R$64,95<small>/mês</small></div>
+        <div class="per-day">nos 3 primeiros meses · R$2,17 por dia</div>
+        <ul>
+          <li>Tudo do Básico, e mais:</li>
+          <li class="plus">Simulação de cenários (“e se eu aumentar o preço?”)</li>
+          <li class="plus">Organização da rotina e da produção</li>
+          <li class="plus">Estratégia pra atrair clientes no Instagram</li>
+          <li class="plus">Acompanhamento semanal ativo</li>
+        </ul>
+        <a href="#" class="btn alt" data-wa="plano_premium">Quero o Premium</a>
+      </div>
+    </div>
+    <div class="roi" style="text-align:left">💡 <b>Faz a conta:</b> se a Zia corrigir o preço de <b>um único produto</b> em R$3 e você vender 14 unidades no mês, ela já se pagou. Todo o resto é lucro seu.</div>
+  </div>
+</section>
+
+<!-- ========== GARANTIA ========== -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="seal"><div><b>7</b>dias grátis</div></div>
+    <div>
+      <h3>Risco zero pra você</h3>
+      <p>Use a Zia por 7 dias sem pagar nada e sem cadastrar cartão. Se não descobrir pelo menos uma coisa que muda o seu lucro, é só não continuar. E se continuar, cancela quando quiser — por mensagem, sem multa e sem burocracia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Ficou alguma dúvida?</span><h2>Perguntas frequentes</h2></div>
+    <div class="faq">
+      <details><summary>Eu não entendo nada de finanças. Vou conseguir usar?</summary><p>Vai sim. A Zia foi feita justamente pra quem não é da área. Você fala do seu jeito (“gastei uns 40 reais de material”) e ela faz a conta e explica sem palavras difíceis.</p></details>
+      <details><summary>Preciso baixar algum aplicativo?</summary><p>Não. Funciona dentro do WhatsApp que você já usa. Sem app, sem senha, sem cadastro.</p></details>
+      <details><summary>Funciona pro meu tipo de negócio?</summary><p>Funciona pra quem vende produto ou serviço: artesanato, comida, doces, beleza, moda, aulas, serviços. Já ajudamos desde quem vende pulseira na feira até escola com R$13 mil de faturamento.</p></details>
+      <details><summary>Meus dados ficam seguros?</summary><p>Sim. Seguimos a LGPD: seus números são usados só pra te ajudar e não são compartilhados com ninguém.</p></details>
+      <details><summary>É um robô? E se eu travar?</summary><p>A Zia é uma inteligência artificial treinada pra pequenos negócios, com uma equipe real por trás. Se travar em alguma coisa, é só mandar mensagem que a gente te ajuda.</p></details>
+      <details><summary>E depois dos 7 dias?</summary><p>Se gostar, você escolhe o plano e garante o preço de fundadora (50% off nos 3 primeiros meses). Se não gostar, não paga nada.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FUNDADORA ========== -->
+<section class="founder">
+  <div class="wrap">
+    <div class="ph" aria-hidden="true">B</div>
+    <blockquote>
+      <p>“Eu já tive um negócio de doces caseiros. Cobrava o preço que minha mãe cobrava e passava o fim de semana inteiro trabalhando pra sobrar R$50. Eu não sabia que estava no prejuízo.”</p>
+      <p>“Criei a Zia pra que nenhuma empreendedora precise descobrir isso tarde demais.”</p>
+      <cite><b>Beatriz Chorban</b> — cofundadora da Zia, engenheira de produção</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ========== CTA FINAL ========== -->
+<section class="final">
+  <div class="wrap">
+    <h2>Daqui a 30 segundos você pode saber se está tendo lucro.</h2>
+    <p>Ou pode continuar no olhômetro mais um mês. A primeira conversa é por nossa conta.</p>
+    <a href="#" class="btn" data-wa="final" style="background:var(--teal);box-shadow:0 8px 24px rgba(15,62,73,.35)">Chamar a Zia no WhatsApp</a>
+    <div class="micro"><span>Grátis por 7 dias</span><span>Sem cartão</span><span>Cancela quando quiser</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:#fff">ZIA</b> · um produto Zèphira · São Paulo/SP</p>
+    <p style="margin-top:6px">Seus dados são tratados conforme a LGPD.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a href="#" class="btn" data-wa="sticky_mobile">💬 Descobrir meu lucro grátis</a></div>
+
+<script>
+(function(){
+  // ====== CONFIGURAÇÃO ======
+  var WA_NUMBER = "5511998888703"; // confirmar número oficial da Zia
+  var BASE_MSG  = "Oi Zia! Quero descobrir se estou tendo lucro 💚";
+
+  // Mantém a origem do clique (utm) na mensagem pra você saber de onde veio cada lead
+  var q = new URLSearchParams(location.search);
+  var src = q.get("utm_source") || "direto";
+  var content = q.get("utm_content") || "";
+
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    var place = a.getAttribute("data-wa");
+    var msg = BASE_MSG;
+    if (place === "plano_premium") msg = "Oi Zia! Quero conhecer o plano Premium 💚";
+    var tag = " [" + src + (content ? "/" + content : "") + "/" + place + "]";
+    a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg + tag);
+    a.target = "_blank"; a.rel = "noopener";
+    a.addEventListener("click", function(){
+      // Eventos para GA4 / Meta Pixel, se instalados
+      try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:"whatsapp_click", cta_position:place, utm_source:src}); } catch(e){}
+      try { if (window.fbq) fbq("track","Contact",{content_name:place}); } catch(e){}
+      try { if (window.gtag) gtag("event","generate_lead",{cta_position:place}); } catch(e){}
+    });
+  });
+
+  // CTA fixo no celular: aparece depois que a pessoa passa do hero
+  var sticky = document.getElementById("sticky");
+  var hero = document.querySelector(".hero");
+  var final = document.querySelector(".final");
+  function onScroll(){
+    var pastHero = hero.getBoundingClientRect().bottom < 0;
+    var atFinal = final.getBoundingClientRect().top < window.innerHeight;
+    sticky.classList.toggle("show", pastHero && !atFinal);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+})();
+</script>
+</body>
+</html>
